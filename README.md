@@ -1,183 +1,104 @@
----
+# Sistem Pemesanan Lapangan Mini Soccer
 
-# **README FRONTEND (kioskurma-Frontend) - FINAL**
+Aplikasi web untuk sistem pemesanan lapangan mini soccer di Sungai Pinyuh berbasis Laravel dengan pembayaran digital real-time.
 
-```markdown
-# Kios Kurma - Frontend Application
+## 🚀 Fitur Utama
 
-Modern web application untuk sistem kasir toko kurma yang dibangun dengan Vue.js 3. Aplikasi ini menyediakan interface yang user-friendly untuk manajemen produk, transaksi penjualan, dan pelaporan.
+- ✅ Pemesanan lapangan secara online dengan cek jadwal real-time
+- 💳 Pembayaran digital terintegrasi dengan Midtrans
+- 📊 Dashboard admin untuk kelola lapangan, jadwal, dan laporan
+- 🧾 Generate bukti pemesanan otomatis
+- 📈 Laporan keuangan lengkap (harian, mingguan, bulanan, tahunan)
 
-## 📋 Daftar Isi
+## 📋 Persyaratan Sistem
 
-- [Fitur](#-fitur)
-- [Teknologi](#-teknologi)
-- [Persyaratan Sistem](#-persyaratan-sistem)
-- [Instalasi](#-instalasi)
-- [Konfigurasi](#-konfigurasi)
-- [Struktur Project](#-struktur-project)
-- [Build & Deployment](#-build--deployment)
-- [Troubleshooting](#-troubleshooting)
-- [License](#-license)
+- PHP >= 8.1
+- Composer
+- MySQL/MariaDB
+- Node.js & NPM
 
-## ✨ Fitur
-
-### Dashboard
-- **Admin Dashboard** - Monitoring stok, alert stok rendah, statistik penjualan
-- **Kasir Dashboard** - Transaksi hari ini, quick access ke POS
-
-### Modul Aplikasi
-- 🔐 **Autentikasi** - Login multi-role dengan JWT
-- 📦 **Manajemen Produk** - CRUD produk dengan upload foto
-- 📊 **Master Data** - Kelola distributor, jenis, satuan
-- 👥 **Manajemen Pegawai** - Kelola data pegawai dan role
-- 💰 **Point of Sale (POS)** - Transaksi dengan keranjang belanja
-- 🧾 **Cetak Struk** - Generate dan print struk otomatis
-- 📈 **Laporan** - Laporan penjualan dengan export PDF
-- 📱 **Responsive Design** - Optimal di desktop & mobile
-
-## 🛠 Teknologi
-
-- **Framework:** Vue.js 3 (Composition API)
-- **Build Tool:** Vite 5.x
-- **Routing:** Vue Router 4
-- **State Management:** Pinia / Vuex 4
-- **UI Framework:** Tailwind CSS 3
-- **HTTP Client:** Axios
-- **Charts:** Chart.js / ApexCharts
-
-## 📌 Persyaratan Sistem
-
-- Node.js >= 16.x
-- NPM >= 8.x atau Yarn >= 1.22
-- Backend API harus running (lihat [kasirkurmabackend](https://github.com/Daeonnn/kasirkurmabackend))
-
-## 📦 Instalasi
-
+## ⚡ Instalasi
 ```bash
-# Clone Repository
-git clone https://github.com/Daeonnn/kioskurma-Frontend.git
-cd kioskurma-Frontend
+# 1. Clone repository
+git clone https://github.com/Msyaiful09/mini-soccer-rent-app.git
+cd mini-soccer-rent-app
 
-# Install Dependencies
+# 2. Install dependencies
+composer install
 npm install
-# atau
-yarn install
 
-# Setup Environment
+# 3. Setup environment
 cp .env.example .env
+php artisan key:generate
 
-# Edit .env sesuai konfigurasi
-# VITE_APP_NAME="Kios Kurma"
-# VITE_API_URL=http://localhost:8000/api
-# VITE_STORAGE_URL=http://localhost:8000/storage
+# 4. Konfigurasi database di file .env
+# Buka file .env dan sesuaikan:
+DB_DATABASE=mini_soccer_db
+DB_USERNAME=root
+DB_PASSWORD=
 
-# Jalankan Development Server
+# 5. Jalankan migration & seeder
+php artisan migrate --seed
+php artisan storage:link
+
+# 6. Compile assets
 npm run dev
-# atau
-yarn dev
 
+# 7. Jalankan aplikasi
+php artisan serve
+```
 
-Lalu jika ingin login, tinggal masukkan
-Admin 
-username :yose
-password :adminkurma123
+Buka browser: `http://localhost:8000`
 
-Kasir
-username :elanda
-password :kasirkurma123
+## 🔑 Login Default
 
-Dan untuk Folder Backendnya :
+**Admin:**
+- Email: `admin@amcminisoccer.com`
+- Password: `admin123`
 
-# Kasir Kurma - Backend API
-
-RESTful API untuk sistem kasir toko kurma yang dibangun menggunakan Laravel. API ini menyediakan endpoint untuk autentikasi, manajemen produk, transaksi penjualan, dan pelaporan.
-
-## 📋 Daftar Isi
-
-- [Fitur](#-fitur)
-- [Teknologi](#-teknologi)
-- [Persyaratan Sistem](#-persyaratan-sistem)
-- [Instalasi](#-instalasi)
-- [Konfigurasi](#-konfigurasi)
-- [API Documentation](#-api-documentation)
-- [Database Schema](#-database-schema)
-- [Testing](#-testing)
-- [Deployment](#-deployment)
-- [Troubleshooting](#-troubleshooting)
-- [Contributing](#-contributing)
-- [License](#-license)
-
-## ✨ Fitur
-
-- 🔐 **Autentikasi JWT** - Secure login dengan token-based authentication
-- 👥 **Multi-Role Access** - Admin dan Kasir dengan hak akses berbeda
-- 📦 **Manajemen Produk** - CRUD produk kurma dengan upload foto
-- 📊 **Master Data** - Pengelolaan distributor, jenis produk, dan satuan
-- 👨‍💼 **Manajemen Pegawai** - CRUD data pegawai dan pengaturan role
-- 💰 **Transaksi Penjualan** - API untuk proses transaksi dengan keranjang
-- 📈 **Laporan** - Endpoint untuk laporan penjualan dengan filtering
-- 🏷️ **Diskon Fleksibel** - Support diskon persentase dan nominal
-- 📱 **RESTful API** - Standar REST untuk integrasi mudah
-- 🔄 **Real-time Stock** - Update stok otomatis saat transaksi
+**Pemilik:**
+- Email: `pemilik@amcminisoccer.com`
+- Password: `pemilik123`
 
 ## 🛠 Teknologi
 
 - **Framework:** Laravel 10.x
-- **Database:** MySQL 8.0
-- **Authentication:** Laravel Sanctum / JWT
-- **PHP Version:** 8.1+
-- **API Documentation:** Postman Collection
-- **Image Storage:** Laravel Storage
-- **PDF Generation:** DomPDF / Laravel PDF
+- **Frontend:** Blade Template, Bootstrap 5
+- **Database:** MySQL
+- **Payment Gateway:** Midtrans
+- **PDF Generation:** DomPDF
 
-## 📌 Persyaratan Sistem
+## 📱 Role & Akses
 
-Sebelum instalasi, pastikan sistem memenuhi persyaratan berikut:
+### Penyewa
+- Registrasi & login
+- Lihat informasi lapangan
+- Cek jadwal real-time
+- Booking lapangan
+- Pembayaran online
+- Download bukti pemesanan
+- Riwayat transaksi
 
-- PHP >= 8.1
-- Composer >= 2.0
-- MySQL >= 8.0 atau MariaDB >= 10.3
-- Extensions PHP yang diperlukan:
-  - BCMath PHP Extension
-  - Ctype PHP Extension
-  - JSON PHP Extension
-  - Mbstring PHP Extension
-  - OpenSSL PHP Extension
-  - PDO PHP Extension
-  - Tokenizer PHP Extension
-  - XML PHP Extension
-  - GD PHP Extension (untuk image processing)
+### Admin
+- Dashboard monitoring
+- Kelola pengguna
+- Kelola lapangan & jadwal
+- Kelola pemesanan
+- Laporan keuangan
 
-## 📦 Instalasi
+### Pemilik
+- Semua akses admin
+- Kelola data admin
+- Analisis bisnis lengkap
 
-```bash
-# Clone Repository
-git clone https://github.com/Daeonnn/kasirkurmabackend.git
-cd kasirkurmabackend
+## 📞 Kontak
 
-# Install Dependencies
-composer install
+**Muhammad Sapri Syaiful Apriliyansyah**  
+NIM: 3202216044  
+Email: msyaiful703@gmail.com  
+Program Studi D3 Teknik Informatika  
+Politeknik Negeri Pontianak
 
-# Setup Environment
-cp .env.example .env
+---
 
-# Generate Application Key
-php artisan key:generate
-
-# Konfigurasi Database di .env
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=kasir_kurma_db
-# DB_USERNAME=root
-# DB_PASSWORD=your_password
-
-# Jalankan Migration dan Seeder
-php artisan migrate --seed
-
-# Link Storage untuk Upload Foto
-php artisan storage:link
-
-# Jalankan Server
-php artisan serve
-
+© 2025 AMC Mini Soccer Sungai Pinyuh 
