@@ -1,0 +1,29 @@
+.playtime-card {
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    background-color: #f8f9fa; /* Light background for normal state */
+    color: #212529; /* Bootstrap text-dark */
+}
+
+.playtime-card.selected {
+    background-color: #00d084; /* Bootstrap Primary blue */
+    border-color: #00d084;
+    color: #fff; /* Text becomes white */
+}
+
+.playtime-card.selected .text-primary {
+    color: #fff !important;
+}
+
+.playtime-card.selected .fw-bold {
+    color: #fff;
+}
+
+.playtime-card.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.playtime-card input[type="checkbox"] {
+    display: none;
+}
