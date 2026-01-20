@@ -1,66 +1,183 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+---
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# **README FRONTEND (kioskurma-Frontend) - FINAL**
 
-## About Laravel
+```markdown
+# Kios Kurma - Frontend Application
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Modern web application untuk sistem kasir toko kurma yang dibangun dengan Vue.js 3. Aplikasi ini menyediakan interface yang user-friendly untuk manajemen produk, transaksi penjualan, dan pelaporan.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Daftar Isi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Fitur](#-fitur)
+- [Teknologi](#-teknologi)
+- [Persyaratan Sistem](#-persyaratan-sistem)
+- [Instalasi](#-instalasi)
+- [Konfigurasi](#-konfigurasi)
+- [Struktur Project](#-struktur-project)
+- [Build & Deployment](#-build--deployment)
+- [Troubleshooting](#-troubleshooting)
+- [License](#-license)
 
-## Learning Laravel
+## ✨ Fitur
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Dashboard
+- **Admin Dashboard** - Monitoring stok, alert stok rendah, statistik penjualan
+- **Kasir Dashboard** - Transaksi hari ini, quick access ke POS
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Modul Aplikasi
+- 🔐 **Autentikasi** - Login multi-role dengan JWT
+- 📦 **Manajemen Produk** - CRUD produk dengan upload foto
+- 📊 **Master Data** - Kelola distributor, jenis, satuan
+- 👥 **Manajemen Pegawai** - Kelola data pegawai dan role
+- 💰 **Point of Sale (POS)** - Transaksi dengan keranjang belanja
+- 🧾 **Cetak Struk** - Generate dan print struk otomatis
+- 📈 **Laporan** - Laporan penjualan dengan export PDF
+- 📱 **Responsive Design** - Optimal di desktop & mobile
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠 Teknologi
 
-## Laravel Sponsors
+- **Framework:** Vue.js 3 (Composition API)
+- **Build Tool:** Vite 5.x
+- **Routing:** Vue Router 4
+- **State Management:** Pinia / Vuex 4
+- **UI Framework:** Tailwind CSS 3
+- **HTTP Client:** Axios
+- **Charts:** Chart.js / ApexCharts
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📌 Persyaratan Sistem
 
-### Premium Partners
+- Node.js >= 16.x
+- NPM >= 8.x atau Yarn >= 1.22
+- Backend API harus running (lihat [kasirkurmabackend](https://github.com/Daeonnn/kasirkurmabackend))
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 📦 Instalasi
 
-## Contributing
+```bash
+# Clone Repository
+git clone https://github.com/Daeonnn/kioskurma-Frontend.git
+cd kioskurma-Frontend
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Install Dependencies
+npm install
+# atau
+yarn install
 
-## Code of Conduct
+# Setup Environment
+cp .env.example .env
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Edit .env sesuai konfigurasi
+# VITE_APP_NAME="Kios Kurma"
+# VITE_API_URL=http://localhost:8000/api
+# VITE_STORAGE_URL=http://localhost:8000/storage
 
-## Security Vulnerabilities
+# Jalankan Development Server
+npm run dev
+# atau
+yarn dev
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+Lalu jika ingin login, tinggal masukkan
+Admin 
+username :yose
+password :adminkurma123
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Kasir
+username :elanda
+password :kasirkurma123
+
+Dan untuk Folder Backendnya :
+
+# Kasir Kurma - Backend API
+
+RESTful API untuk sistem kasir toko kurma yang dibangun menggunakan Laravel. API ini menyediakan endpoint untuk autentikasi, manajemen produk, transaksi penjualan, dan pelaporan.
+
+## 📋 Daftar Isi
+
+- [Fitur](#-fitur)
+- [Teknologi](#-teknologi)
+- [Persyaratan Sistem](#-persyaratan-sistem)
+- [Instalasi](#-instalasi)
+- [Konfigurasi](#-konfigurasi)
+- [API Documentation](#-api-documentation)
+- [Database Schema](#-database-schema)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+## ✨ Fitur
+
+- 🔐 **Autentikasi JWT** - Secure login dengan token-based authentication
+- 👥 **Multi-Role Access** - Admin dan Kasir dengan hak akses berbeda
+- 📦 **Manajemen Produk** - CRUD produk kurma dengan upload foto
+- 📊 **Master Data** - Pengelolaan distributor, jenis produk, dan satuan
+- 👨‍💼 **Manajemen Pegawai** - CRUD data pegawai dan pengaturan role
+- 💰 **Transaksi Penjualan** - API untuk proses transaksi dengan keranjang
+- 📈 **Laporan** - Endpoint untuk laporan penjualan dengan filtering
+- 🏷️ **Diskon Fleksibel** - Support diskon persentase dan nominal
+- 📱 **RESTful API** - Standar REST untuk integrasi mudah
+- 🔄 **Real-time Stock** - Update stok otomatis saat transaksi
+
+## 🛠 Teknologi
+
+- **Framework:** Laravel 10.x
+- **Database:** MySQL 8.0
+- **Authentication:** Laravel Sanctum / JWT
+- **PHP Version:** 8.1+
+- **API Documentation:** Postman Collection
+- **Image Storage:** Laravel Storage
+- **PDF Generation:** DomPDF / Laravel PDF
+
+## 📌 Persyaratan Sistem
+
+Sebelum instalasi, pastikan sistem memenuhi persyaratan berikut:
+
+- PHP >= 8.1
+- Composer >= 2.0
+- MySQL >= 8.0 atau MariaDB >= 10.3
+- Extensions PHP yang diperlukan:
+  - BCMath PHP Extension
+  - Ctype PHP Extension
+  - JSON PHP Extension
+  - Mbstring PHP Extension
+  - OpenSSL PHP Extension
+  - PDO PHP Extension
+  - Tokenizer PHP Extension
+  - XML PHP Extension
+  - GD PHP Extension (untuk image processing)
+
+## 📦 Instalasi
+
+```bash
+# Clone Repository
+git clone https://github.com/Daeonnn/kasirkurmabackend.git
+cd kasirkurmabackend
+
+# Install Dependencies
+composer install
+
+# Setup Environment
+cp .env.example .env
+
+# Generate Application Key
+php artisan key:generate
+
+# Konfigurasi Database di .env
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=kasir_kurma_db
+# DB_USERNAME=root
+# DB_PASSWORD=your_password
+
+# Jalankan Migration dan Seeder
+php artisan migrate --seed
+
+# Link Storage untuk Upload Foto
+php artisan storage:link
+
+# Jalankan Server
+php artisan serve
+
